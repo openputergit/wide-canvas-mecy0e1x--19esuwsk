@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oratify - Enhance Your Communication Skills</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .neu-brutal {
+            box-shadow: 4px 4px 0 0 black;
+            border: 3px solid black;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6, #7C3AED);
+        }
+        .recording-animation {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <nav class="gradient-bg p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Oratify</h1>
+            <div class="flex gap-4">
+                <button id="loginBtn" class="neu-brutal bg-white px-4 py-2 font-bold hover:bg-[#F59E0B] transition-colors">Login</button>
+                <button id="registerBtn" class="neu-brutal bg-[#F59E0B] px-4 py-2 font-bold hover:bg-white transition-colors">Register</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Profile Card -->
+            <div class="neu-brutal p-6 bg-white">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-full bg-[#F59E0B] flex items-center justify-center text-2xl font-bold">JD</div>
+                    <div>
+                        <h2 class="text-xl font-bold">John Doe</h2>
+                        <p class="text-gray-600">Level 5 Speaker</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-1 text-center">
+                        <p class="font-bold text-2xl">450</p>
+                        <p class="text-sm">Points</p>
+                    </div>
+                    <div class="flex-1 text-center">
+                        <p class="font-bold text-2xl">8</p>
+                        <p class="text-sm">Badges</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Session Card -->
+            <div class="neu-brutal p-6 bg-white">
+                <h3 class="text-xl font-bold mb-4">Start Practice Session</h3>
+                <div id="recorder" class="text-center">
+                    <button id="recordBtn" class="w-16 h-16 rounded-full bg-red-500 mx-auto mb-4 recording-animation hidden">
+                        <i class="bi bi-mic-fill text-white text-2xl"></i>
+                    </button>
+                    <button id="startRecordBtn" class="neu-brutal bg-[#F59E0B] px-6 py-3 font-bold">
+                        Start Recording
+                    </button>
+                </div>
+            </div>
+
+            <!-- Upcoming Sessions -->
+            <div class="neu-brutal p-6 bg-white">
+                <h3 class="text-xl font-bold mb-4">Weekend Sessions</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-gray-100 rounded">
+                        <div>
+                            <p class="font-bold">Technical Interview Prep</p>
+                            <p class="text-sm text-gray-600">Saturday, 10:00 AM</p>
+                        </div>
+                        <button class="neu-brutal bg-[#F59E0B] px-3 py-1 text-sm">Join</button>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-100 rounded">
+                        <div>
+                            <p class="font-bold">English Speaking Practice</p>
+                            <p class="text-sm text-gray-600">Sunday, 11:00 AM</p>
+                        </div>
+                        <button class="neu-brutal bg-[#F59E0B] px-3 py-1 text-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="neu-brutal p-6 bg-white col-span-1 md:col-span-2 lg:col-span-3">
+                <h3 class="text-xl font-bold mb-4">Leaderboard</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-black">
+                                <th class="p-2 text-left">Rank</th>
+                                <th class="p-2 text-left">User</th>
+                                <th class="p-2 text-left">Points</th>
+                                <th class="p-2 text-left">Badges</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-2">1</td>
+                                <td class="p-2">Sarah Johnson</td>
+                                <td class="p-2">850</td>
+                                <td class="p-2">12</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-2">2</td>
+                                <td class="p-2">Mike Chen</td>
+                                <td class="p-2">720</td>
+                                <td class="p-2">10</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="p-2">3</td>
+                                <td class="p-2">John Doe</td>
+                                <td class="p-2">450</td>
+                                <td class="p-2">8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="max-w-md mx-auto neu-brutal p-6 bg-white">
+            <h2 class="text-2xl font-bold mb-6">Login to Oratify</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block mb-2">Email</label>
+                    <input type="email" class="w-full neu-brutal p-2" required>
+                </div>
+                <div>
+                    <label class="block mb-2">Password</label>
+                    <input type="password" class="w-full neu-brutal p-2" required>
+                </div>
+                <button type="submit" class="w-full neu-brutal bg-[#F59E0B] py-2 font-bold hover:bg-white transition-colors">
+                    Login
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Toggle between login form and dashboard
+        const loginBtn = document.getElementById('loginBtn');
+        const loginForm = document.getElementById('loginForm');
+        const dashboard = document.getElementById('dashboard');
+        const startRecordBtn = document.getElementById('startRecordBtn');
+        const recordBtn = document.getElementById('recordBtn');
+
+        loginBtn.addEventListener('click', () => {
+            loginForm.classList.remove('hidden');
+            dashboard.classList.add('hidden');
+        });
+
+        loginForm.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            loginForm.classList.add('hidden');
+            dashboard.classList.remove('hidden');
+        });
+
+        // Recording functionality
+        let isRecording = false;
+        startRecordBtn.addEventListener('click', () => {
+            if (!isRecording) {
+                startRecordBtn.classList.add('hidden');
+                recordBtn.classList.remove('hidden');
+                isRecording = true;
+                // Start recording logic here
+            }
+        });
+
+        recordBtn.addEventListener('click', () => {
+            startRecordBtn.classList.remove('hidden');
+            recordBtn.classList.add('hidden');
+            isRecording = false;
+            // Stop recording logic here
+        });
+
+        // Initialize API endpoints
+        const apiEndpoint = 'https://r0c8kgwocscg8gsokogwwsw4.zetaverse.one';
+        const headers = {
+            'Authorization': 'Bearer B6ZGajKCf1U7szxZuJVnc2FEeaI2'
+        };
+
+        // Function to handle audio recording and analysis
+        async function handleAudioAnalysis(audioBlob) {
+            try {
+                // First upload the audio file
+                const formData = new FormData();
+                formData.append('file', audioBlob);
+                formData.append('userId', 'user123');
+                formData.append('appSlug', 'oratify-123');
+
+                const uploadResponse = await fetch(`${apiEndpoint}/storage/upload`, {
+                    method: 'POST',
+                    headers,
+                    body: formData
+                });
+
+                const { url } = await uploadResponse.json();
+
+                // Then analyze the audio using AI
+                const aiResponse = await fetch(`${apiEndpoint}/ai`, {
+                    method: 'POST',
+                    headers: {
+                        ...headers,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        messages: [{
+                            role: 'user',
+                            content: [
+                                { type: 'text', text: 'Please analyze this speech recording' },
+                                { type: 'audio_url', audio_url: { url } }
+                            ]
+                        }]
+                    })
+                });
+
+                const analysis = await aiResponse.json();
+                // Handle the analysis results
+                console.log(analysis);
+            } catch (error) {
+                console.error('Error analyzing audio:', error);
+            }
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
